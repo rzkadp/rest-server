@@ -1,0 +1,18 @@
+CHRIS KACERGUIS REST-SERVER
+
+Requirements
+PHP 7.2 or greater
+CodeIgniter 3.1.11+
+
+JUST RUN THIS IN COMPOSER TO INSTALL
+
+composer require chriskacerguis/codeigniter-restserver
+
+
+Here is a basic example. This controller, which should be saved as Api.php, can be called in two ways:
+
+http://domain/api/users/ will return the list of all users
+http://domain/api/users/id/1 will only return information about the user with id = 1
+
+
+SOURCE : https://github.com/chriskacerguis/codeigniter-restserver
