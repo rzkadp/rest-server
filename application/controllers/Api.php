@@ -26,22 +26,30 @@ class Api extends RestController
             // Check if the users data store contains users
             if ($users) {
                 // Set the response and exit
-                $this->response($users, 200);
+                $this->response([
+                    'status' => true,
+                    'message' => 'data found.',
+                    'data' => $users
+                ], RestController::HTTP_OK);
             } else {
                 // Set the response and exit
                 $this->response([
                     'status' => false,
-                    'message' => 'No users were found'
-                ], 404);
+                    'message' => 'no users were found'
+                ], RestController::HTTP_BAD_REQUEST);
             }
         } else {
             if (array_key_exists($id, $users)) {
-                $this->response($users[$id], 200);
+                $this->response([
+                    'status' => true,
+                    'message' => 'data found.',
+                    'data' => $users[$id]
+                ], RestController::HTTP_OK);
             } else {
                 $this->response([
                     'status' => false,
-                    'message' => 'No such user found'
-                ], 404);
+                    'message' => 'no such user found'
+                ], RestController::HTTP_BAD_REQUEST);
             }
         }
     }
